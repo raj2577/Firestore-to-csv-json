@@ -1,0 +1,82 @@
+# Firebase Firestore Export Tool
+
+A powerful Node.js tool for exporting Firestore data to Excel-friendly formats.
+
+## 🚀 Features
+
+- **Complete Data Export**: Export all collections and documents from your Firestore database
+- **Excel-Ready Formats**: Generate both JSON and CSV files for easy import into Excel
+- **Timezone Handling**: Convert timestamps to your preferred timezone (default: IST)
+- **Document ID Preservation**: Include document IDs as fields in exported data
+- **Batch Processing**: Efficiently handle large collections with batch operations
+
+## 📋 Prerequisites
+
+- Node.js (v14 or higher)
+- Firebase project with Firestore database
+- Service account credentials from Firebase
+
+## 🛠️ Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/firebase-firestore-export.git
+   cd firebase-firestore-export
+   ```
+
+2. Install dependencies:
+   ```
+   npm install firebase-admin
+   ```
+
+3. Configure your Firebase credentials:
+   - Download your service account key from Firebase Console (Project Settings > Service Accounts)
+   - Save it as `serviceAccountKey.json` in the project directory or update the path in the script
+
+## 📊 Usage
+
+Run the main export script to generate Excel-friendly JSON and CSV files:
+
+```
+node index.js
+```
+
+This will:
+- Connect to your Firestore database
+- Export each collection as separate JSON and CSV files
+- Convert timestamps to IST (Indian Standard Time)
+- Include document IDs in the exported data
+
+## 📁 File Structure
+
+- `index.js` - Main export script for JSON/CSV generation
+- `serviceAccountKey.json` - Your Firebase credentials (not included)
+
+## ⚙️ Configuration Options
+
+### Timezone
+
+By default, timestamps are converted to IST (UTC+5:30). To change this:
+
+1. Open `index.js`
+2. Find the `convertToIST` function
+3. Change the timezone in `timeZone: 'Asia/Kolkata'` to your preferred timezone
+
+### Collections
+
+To export specific collections only:
+
+1. Modify the `exportFirestoreData` function to filter collections
+2. Add a collections array and filter based on collection IDs
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgements
+
+- [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
